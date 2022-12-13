@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="6" name="Digits-all">
+    <Basepaths>/Digits-all/v1</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1645214256334</CreatedAt>
+    <CreatedBy>Elango.Dhanasekaran1@T-Mobile.com</CreatedBy>
+    <Description>API Proxy for Digits-all APIs</Description>
+    <DisplayName>Digits-all</DisplayName>
+    <LastModifiedAt>1670534574839</LastModifiedAt>
+    <LastModifiedBy>Venkata.Rudraraju1@T-Mobile.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:689fe6ee5d544401385bda6e17de5efe1a22d9329feaff0541090d9242c4e77a189164a4164c3571cfbeb36fd1ab929898773a8489f5e527b3136a6e8e52d2fa</ManifestVersion>
+    <Policies>
+        <Policy>AM-APIConfig</Policy>
+        <Policy>AM-Add-CORS</Policy>
+        <Policy>AM-Remove-Path-Copy</Policy>
+        <Policy>FC-Authentication</Policy>
+        <Policy>FC-BackendBasicAuth</Policy>
+        <Policy>FC-BackendErrorHandling</Policy>
+        <Policy>FC-BackendJWTAuth</Policy>
+        <Policy>FC-BackendOAuth</Policy>
+        <Policy>FC-Fault-Handler</Policy>
+        <Policy>FC-Logging</Policy>
+        <Policy>FC-ThreatProtection</Policy>
+        <Policy>FC-Traffic-Management</Policy>
+        <Policy>FC-UnknownResource</Policy>
+        <Policy>Splunk-Logging</Policy>
+        <Policy>Target</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://Target.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>digits-all</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-APIConfig" version="SHA-512:ac3fe91943d8856664e00419b4a4331a13433118fd3fb67b13eb25595e7af3ef6ddda9323c3c82f4f69748193bf457f99031715a01395adaddfdd3f423bc6436"/>
+        <VersionInfo resourceName="AM-Add-CORS" version="SHA-512:1a4b2007d90f3ef58a55768ed8702c5c5acd09d94545225c0f3a00bf0c66654a427db4b814935a07319eb7647fef664e7f53be17f4f2f69cc59be917f68b741d"/>
+        <VersionInfo resourceName="AM-Remove-Path-Copy" version="SHA-512:786caa4a7d6f2e188426557217cffc20d1f156242891a6710196469fea6a95314822eb7f8c92bb519dbf7664afb0b4c82393ca18f4a2a3fce0f0c7ca9f0febc5"/>
+        <VersionInfo resourceName="FC-Authentication" version="SHA-512:12e094a33d0dd40d30579b6b57694f29d0ea8d69889986dad3782aee918bd08bb23ef16de7d98eabf1d78c1a11a24f6a8e8ede2f9f8f7525a7741c59792d8ec8"/>
+        <VersionInfo resourceName="FC-BackendBasicAuth" version="SHA-512:64613b15c0470233f0b73708856865a382e5d99fd903835f932c433b92d651c0713427228835cffca1d5461fd681b92f38db5c9d3e691797bf60efbef2007d62"/>
+        <VersionInfo resourceName="FC-BackendErrorHandling" version="SHA-512:66ea6d9de6c552b7053c95dc5bb06c5bf3ac478d47fced233bcf0658cf0de3db9474d59e0235a9220508f48dfba67b2501bbbdb5e126d68ba9f0f26bab254cd9"/>
+        <VersionInfo resourceName="FC-BackendJWTAuth" version="SHA-512:367977a94479116cb4a6822bed89418112920d2a9d2338d4b712c788c58c3770d58609a5cba8f961c93a1b50fe8f6ca64bc2e51b74f73a26d6a03b11302c3336"/>
+        <VersionInfo resourceName="FC-BackendOAuth" version="SHA-512:38aa954dfd44cd17019d1e4479f54322ae43df28fe2d36d32308d38c1973e6c933c086da76b16fc63a4fbd470767696f9687c7549534db7af308e5d39e884b3c"/>
+        <VersionInfo resourceName="FC-Fault-Handler" version="SHA-512:3c8dfe85c59cb0d28fd35c79a50032f09af1f5fa43d51e1e9c7ce2b06f8d2f3e6710b6efa8e8064d2ef8c86ccdb9c919ec0bda067ace17899c96824478b5806b"/>
+        <VersionInfo resourceName="FC-Logging" version="SHA-512:8ea893b007739fee3b7ea863abf05c87056a92baf3c51c50839761d29895f1900485c23a6806f2c9f44e96ea64adb138acb25dac9c4f806d9ac2044d13f7e8be"/>
+        <VersionInfo resourceName="FC-ThreatProtection" version="SHA-512:1b8ae8462add829e25fb8fc89c1928066d048acb7a67eb376ddc25042faf6eae90eada9707e97ca54754135b6934a8dc709230bd798e01f58d537e5e13e69c94"/>
+        <VersionInfo resourceName="FC-Traffic-Management" version="SHA-512:3ea8a46c5f467cebb2efafacad1affb29bff4109536cd8fdbbdb3b511f9bcddf338e1f579fc06db9ae29a044fd5ddb85a449b4b3e50da2b8d2582cbf3ad6c393"/>
+        <VersionInfo resourceName="FC-UnknownResource" version="SHA-512:e7c36e390bae81a33e08be4167f473cb144d6034c94150bfb1d86a199aeb59a36b3239ee7f6df2f8532087e98427f5c3e59a21e1fe4d31d2f6637279d4f4419d"/>
+        <VersionInfo resourceName="Splunk-Logging" version="SHA-512:c55f85545100d04f201f878d5fbc8344ff0e0587b044a9f70ce127c17383c4e534f6bdc6b249b9218f29fc279989f6dbf9183d73bb280b83b7ddc5301f28cbb5"/>
+        <VersionInfo resourceName="Target" version="SHA-512:1049fb11dda846953b0d340c6c8d4c83ca91a6ff03c97b9f2692ed75a2521214d1c26e2a7939ecd475d37edfcaae14822c4bc29a17ef5dbe4887d4467a667597"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:566d18fe37455a5b4b3fc5ae039bbec0304df59ce4bf7b2012ac3eb7b0db5493b155d7442c9093df90d8e5a01900752d3efb742717effb6644c12501287587d8"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="jsc://Target.js" version="SHA-512:12d35c4f5b7c35d47d95639ed92ff55f6a745fa0bc497393bb1af023bd0b8474bfebb18cd92a198f824e20f274f553837f3ce2cc181f5af41612fe0cb11532b2"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="digits-all" version="SHA-512:76f21d67bf27b89b62640d33fb1edffe1de4039c44a7704c108266a7273d6509fb330a5552f229777f450c51963cfc07eab83e5356935d10597d229575a85e98"/>
+    </TargetEndpoints>
+</Manifest>

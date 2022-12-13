@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageLogging async="false" continueOnError="false" enabled="true" name="Splunk-Logging">
+    <DisplayName>Splunk-Logging</DisplayName>
+    <File>
+        <!-- NOTE: This message logging policy logs a standard set of flow variables and
+            the request and response content for every api. If there are API proxy specific
+            requirements, where additional information specific to an API proxy needs to be
+            logged, in that case those additional items/data can be added at the end of the
+            respective flows.
+            * Each value to be logged should be added as a key=<value> pair Eg: color_name=Red
+            * Each of the key value pairs should be separated using || symbol Eg: {proxyReqFlow}||color_name=Red||pattern=random
+            * Each line for the respective flows should end with the encoded characters &#xD;&#xD; (carriage return)   -->
+        <Message>
+{proxyReqFlow}||errorStatusCode={error.status.code}||errorReasonPhrase={error.reason.phrase}||errorContent={error.content}||&#xD;&#xD;
+
+{targetReqFlow}||&#xD;&#xD;
+
+{targetRespFlow}||status={message.status.code}||reasonPhrase={response.reason.phrase}||responseContent={response.content}||&#xD;&#xD;
+
+{proxyRespFlow}||status={message.status.code}||reasonPhrase={response.reason.phrase}||responseContent={response.content}||&#xD;&#xD;
+</Message>
+        <FileName>test.log</FileName>
+        <FileRotationOptions rotateFileOnStartup="true">
+            <FileRotationType>SIZE</FileRotationType>
+            <MaxFileSizeInMB>10</MaxFileSizeInMB>
+            <MaxFilesToRetain>10</MaxFilesToRetain>
+        </FileRotationOptions>
+    </File>
+</MessageLogging>

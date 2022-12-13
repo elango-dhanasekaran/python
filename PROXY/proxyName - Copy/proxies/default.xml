@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules>
+        <FaultRule name="FaultHander">
+            <Step>
+                <Name>FC-Logging</Name>
+            </Step>
+            <Step>
+                <Name>AM-Add-CORS</Name>
+                <Condition>apiconfig.cors.enabled == "true"</Condition>
+            </Step>
+            <Step>
+                <Name>FC-Fault-Handler</Name>
+            </Step>
+            <Condition>(error.status.code != null) and (fault.name != "RaiseFault")</Condition>
+        </FaultRule>
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>FC-Logging</Name>
+            </Step>
+            <Step>
+                <Name>AM-APIConfig</Name>
+            </Step>
+            <!--<Step>-->
+            <!--    <Name>FC-Authentication</Name>-->
+            <!--    <Condition>request.verb != "OPTIONS"</Condition>-->
+            <!--</Step>-->
+            <Step>
+                <Name>FC-Traffic-Management</Name>
+            </Step>
+            <Step>
+                <Name>FC-ThreatProtection</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <Name>FC-Logging</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <PostClientFlow>
+        <Response>
+            <Step>
+                <Name>Splunk-Logging</Name>
+            </Step>
+        </Response>
+    </PostClientFlow>
+    <Flows>
+        <Flow name="OptionsPreFlight">
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-Add-CORS</Name>
+                </Step>
+            </Response>
+            <Condition>apiconfig.cors.enabled == "true" AND request.verb == "OPTIONS" AND request.header.origin != null AND request.header.Access-Control-Request-Method != null</Condition>
+        </Flow>
+        <Flow name="DOS-filetransfer">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/filetransfer/sessions") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-groupchat">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/groupchat/rejoin") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-contactCapabilities">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/contactCapabilities") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="DOS-emergency">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/emergency/chat/sessions") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-filetransfer">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/filetransfer/download") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="DTS-getToken">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsTokenService/getToken") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DTS-refreshToken">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsTokenService/refreshToken") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DNS-getStatusUrl">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsNotificationService/getStatusUrl") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-validateDaasToken">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/validateDaasToken") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-verifyNumberCode">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/lines/verifyNumberCode") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-manageSession">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/manageSession") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="DOS-getToken">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/getToken") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-linesAndDeviceInfo">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/linesAndDeviceInfo") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-register">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/register") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsNotificationService/*/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="DOS-refreshToken">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/refreshToken") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-validateLine">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/validateLine") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="DOS-logout">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/logout") and (request.verb = "DELETE")</Condition>
+        </Flow>
+        <Flow name="DOS-deviceInstances">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/lines/deviceInstances") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="DOS-dndState">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/lines/dndState") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-serviceState">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/lines/serviceState") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-updatePushToken">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/lines/updatePushToken") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-refresh">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/config/refresh") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-reg">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/v1/notification/reg") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-delete">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/mstore_objects/delete") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-bulkUpdate">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/mstore_objects/bulkUpdate") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="daasmstoresync">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/daasmstoresync/**") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-greeting">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/vvm/upload/greeting") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-dms_proxy">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/*/dms_proxy/**")</Condition>
+        </Flow>
+        <Flow name="DOS-wsg-proxy">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/wsg-proxy/**")</Condition>
+        </Flow>
+        <Flow name="DOS-ses-proxy">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/ses-proxy/**")</Condition>
+        </Flow>
+        <Flow name="DOS-exchangeForDaasToken">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/exchangeForDaasToken")</Condition>
+        </Flow>
+        <Flow name="DOS-voicemail-POST">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/vvm-proxy/**") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="DOS-voicemail-GET">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/vvm-proxy/**") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="DOS-voicemail-PUT">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/vvm-proxy/**") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="DOS-voicemail-DELETE">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/vvm-proxy/**") and (request.verb = "DELETE")</Condition>
+        </Flow>
+        <Flow name="cass">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/caas/**")</Condition>
+        </Flow>
+        <Flow name="digitslink">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/digitslink/**")</Condition>
+        </Flow>
+        <Flow name="cass-contacts">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/caas/contacts/**")</Condition>
+        </Flow>
+        <!--<Flow name="dass-all">-->
+        <!--    <Description/>-->
+        <!--    <Request/>-->
+        <!--    <Response/>-->
+        <!--    <Condition>(proxy.pathsuffix MatchesPath "/**")</Condition>-->
+        <!--</Flow>-->
+        <Flow name="UnknownResource">
+            <Description>This flow is used to handle all unknown resources</Description>
+            <Request>
+                <Step>
+                    <Name>FC-UnknownResource</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/v1/digitsApi</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+        <VirtualHost>geo</VirtualHost>
+        <!--<VirtualHost>default</VirtualHost>-->
+        <!--<VirtualHost>2WaySSL</VirtualHost>-->
+        <Properties>
+            <Property name="response.streaming.enabled">true</Property>
+            <Property name="request.streaming.enabled">true</Property>
+        </Properties>
+    </HTTPProxyConnection>
+    <RouteRule name="NoRoute">
+        <Condition>request.verb == "OPTIONS" AND request.header.origin != null AND request.header.Access-Control-Request-Method != null</Condition>
+    </RouteRule>
+    <RouteRule name="DOS-filetransfer">
+        <TargetEndpoint>digits-all</TargetEndpoint>
+        <Condition>(proxy.pathsuffix MatchesPath "/digitsOrchestratorService/daas/filetransfer/sessions") and (request.verb = "POST")</Condition>
+    </RouteRule>
+    <RouteRule name="digits-all">
+        <TargetEndpoint>digits-all</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

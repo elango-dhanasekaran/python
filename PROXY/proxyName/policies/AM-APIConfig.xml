@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-APIConfig">
+    <DisplayName>AM-APIConfig</DisplayName>
+    <Properties/>
+    <!-- Auth configuration -->
+    <!--Configure authentication types that are enabled in the proxy -->
+    <!-- Set the below flag "authentication.type.basic" to true to enable Basic authentication -->
+    <AssignVariable>
+        <Name>authentication.type.basic</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- Set authentication.basic.validatesecret to true to validate consumer secret for basic auth -->
+    <AssignVariable>
+        <Name>authentication.basic.validatesecret</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- Set the below flag "authentication.type.oauth" to true to enable Oauth authentication -->
+    <AssignVariable>
+        <Name>authentication.type.oauth</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- Set the below flag "authentication.type.taap" to true to enable TAAP authentication -->
+    <AssignVariable>
+        <Name>authentication.type.taap</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- End Auth configuration -->
+    <!-- Traffic Management Configurations -->
+    <!-- Spike Arrest Configurations -->
+    <!-- Enable/Disable Spike Arrest -->
+    <AssignVariable>
+        <Name>traffic.spikearrest.enabled</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- Configure Spike Arrest Identifier -->
+    <AssignVariable>
+        <Name>traffic.spikearrest.identifier</Name>
+        <Value>null</Value>
+    </AssignVariable>
+    <!-- Configure Spike Arrest Weight -->
+    <AssignVariable>
+        <Name>traffic.spikearrest.weight</Name>
+        <Value>0</Value>
+    </AssignVariable>
+    <!-- Configure Spike Arrest Rate -->
+    <AssignVariable>
+        <Name>traffic.spikearrest.rate</Name>
+        <Value>10pm</Value>
+    </AssignVariable>
+    <!-- End Spike Arrest Configurations -->
+    <!-- Quota Configurations -->
+    <!-- Enable/Disable Quota -->
+    <AssignVariable>
+        <Name>traffic.quota.enabled</Name>
+        <Value>true</Value>
+    </AssignVariable>
+    <!-- Configure Quota Count-->
+    <AssignVariable>
+        <Name>traffic.quota.limit</Name>
+        <Value>4000</Value>
+    </AssignVariable>
+    <!-- Configure Quota Interval-->
+    <AssignVariable>
+        <Name>traffic.quota.interval</Name>
+        <Value>1</Value>
+    </AssignVariable>
+    <!-- Configure Quota Time unit-->
+    <AssignVariable>
+        <Name>traffic.quota.timeUnit</Name>
+        <Value>minute</Value>
+    </AssignVariable>
+    <!-- End Traffic Management Configurations -->
+    <!-- API Configurations -->
+    <!-- Configure CORS settings -->
+    <AssignVariable>
+        <Name>apiconfig.cors.enabled</Name>
+        <Value>true</Value>
+    </AssignVariable>
+    <!-- Set the value for the Access-Control-Allow-Origin header
+         This value will be used by the different RaiseFault policies
+         in the proxy. If for any API proxy this value needs to be dynamic
+         then the variable  "apiconfig.cors.allowedorigin" can be overridden
+         by using another Policy or using the variable "request.header.origin" -->
+    <AssignVariable>
+        <Name>apiconfig.cors.allowedorigin</Name>
+        <Value>*</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>apiconfig.cors.allowedheaders</Name>
+        <Value>Accept,localhost,tmouserid,Accept-Encoding,msisdn,client-version,callresourceurl,Accept-Language,authcode,Authorization,Cache-Control,cdrinfo,client-type,config,Connection,Content-Length,Content-Type,content-type,conv-session-id,Cookie,daasaccesstoken,daasclientid,device_id,from,Geolocation,Geolocation-Routing,group,Host,iamtoken,imdn-msg-id,is-ft,is-upgrade,line,modeswitch,origin,originator,participant-url,Pragma,read,redirect-uri,resourceUrl,Sec-Fetch-Mode,Sec-Metadata,sender_id,to,unique-session-number,unusedlines,User-Agent,Wrg-Content-Type,x-client-id,x-correlation-id,x-mav-client-version,x-p-associated-from,x-requested-with,x-requestor-name,x-session-id,client-id,x-validated-id,trxid,clientid,Access-Control-Allow-Private-Network,daasrefreshtoken,blob,islist</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>apiconfig.cors.maxage</Name>
+        <Value>3628800</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>apiconfig.cors.allowedmethods</Name>
+        <Value>GET, PUT, POST, DELETE, OPTIONS</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>apiconfig.cors.allowedcredentials</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- End Configure CORS settings -->
+    <!-- Configure Threat Protection -->
+    <!-- Enable Javascript Injection protection -->
+    <AssignVariable>
+        <Name>apiconfig.threatprotection.jsinjection.enabled</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- Enable XPath Injection protection -->
+    <AssignVariable>
+        <Name>apiconfig.threatprotection.xpathinjection.enabled</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- Enable SQL Injection protection -->
+    <AssignVariable>
+        <Name>apiconfig.threatprotection.sqlinjection.enabled</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- Enable Serverside Include Injection protection -->
+    <AssignVariable>
+        <Name>apiconfig.threatprotection.serversideincludeinjection.enabled</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- End Configure Threat Protection -->
+    <!-- Enable backend error rewriting -->
+    <AssignVariable>
+        <Name>apiconfig.backenderrorhandling.enabled</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- End Enable backend error rewriting -->
+    <!--Enable backendauth -->
+    <AssignVariable>
+        <Name>apiconfig.backendauth.enabled</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!--Enable backendauth basic -->
+    <AssignVariable>
+        <Name>apiconfig.backendauth.basic</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!--Enable backendauth oauth -->
+    <AssignVariable>
+        <Name>apiconfig.backendauth.oauth</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!--Enable backendauth jwt -->
+    <AssignVariable>
+        <Name>apiconfig.backendauth.jwt</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <!-- End API Configurations-->
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
