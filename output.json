@@ -1,0 +1,61 @@
+{
+    "sada-chouse-test": {
+        "template": "template-d",
+        "DisplayName": "proxyName-copy",
+        "Description": "app-movement-prod",
+        "HTTPProxyConnection": {
+            "BasePath": "/api/v1/movements",
+            "Properties": {
+                "response.streaming.enabled": true,
+                "request.streaming.enabled": true,
+                "io.timeout.millis": 1800000
+            }
+        },
+        "Policies": {
+            "ProxiesPreflowPolicies": [
+                "FC-Logging",
+                "AM-APIConfig",
+                "FC-Traffic-Management",
+                "FC-ThreatProtection"
+            ],
+            "ProxiesPostflowPolicies": [
+                "FC-Logging"
+            ]
+        },
+        "TargetEndpoint": {
+            "Server": "movement-prod",
+            "Path": "/movements",
+            "Properties": {
+                "response.streaming.enabled": true,
+                "request.streaming.enabled": true,
+                "io.timeout.millis": 1800000
+            }
+        }
+    },
+    "test2": {
+        "template": "template-d",
+        "DisplayName": "test2",
+        "Description": "app-writetag-prod",
+        "HTTPProxyConnection": {
+            "BasePath": "/api/v1/writetags",
+            "Properties": {
+                "Policy": ""
+            }
+        },
+        "Policies": {
+            "ProxiesPreflowPolicies": [
+                "FC-Logging",
+                "AM-APIConfig",
+                "FC-Traffic-Management",
+                "FC-ThreatProtection"
+            ],
+            "ProxiesPostflowPolicies": [
+                "FC-Logging"
+            ]
+        },
+        "TargetEndpoint": {
+            "Server": "writetag-prod",
+            "Path": "/writetags"
+        }
+    }
+}
